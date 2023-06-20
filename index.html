@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+   
+    <title>Document</title>
+
+</head>
+<body>
+
+	<div class="imagecontainer">
+
+		<img src="images/player.png" alt="backgroundimage" id="backgroundimage">
+
+
+		<div class="timestuff">
+			<img id="timage" src="images/time.png">
+			<div id="audioTime">00:00</div>
+		</div>
+
+		<div class="wheels">
+			<img id="rotimage" class="image" src="images/leftWheel.png" alt="Rotating Image">
+			<img id="rotimage2" class="image" src="images/RightWheel.png" alt="Rotating Image2">
+		</div>
+
+
+		<div class="playstuff">
+			<img class="playmage" src="images/play.png">
+			<button id="playPauseButton" class="textOverlay" >Play</button>
+		</div>
+
+		<div class="audionametag">
+			<p id="audioName"></p>
+		</div>
+
+
+			
+
+
+		<audio id="audio" src="audio/Black Saints.mp3"></audio>
+
+	</div>
+	
+
+
+	<script type="text/javascript">
+
+		var images = document.querySelectorAll(".image");
+
+		var playPauseButton = document.getElementById("playPauseButton");
+		var audio = document.getElementById("audio");
+
+		var audioName = document.getElementById("audioName");
+
+		var audioTime = document.getElementById("audioTime");
+		var isPaused = true;
+
+		audioName.textContent = audio.src.substring(audio.src.lastIndexOf("/")+1);
+
+		playPauseButton.addEventListener('click',function(){
+
+			if (isPaused) {
+				images.forEach(function(image){
+					image.style.animationPlayState = "running";
+				});
+				playPauseButton.textContent = "Pause";
+				audio.play();
+			}else{
+				images.forEach(function(image){
+					image.style.animationPlayState = "paused";
+				});
+				playPauseButton.textContent = "Play";
+				audio.pause();
+			}
+			isPaused = !isPaused;
+		});
+
+		audio.addEventListener('timeupdate', function(){
+			var minutes = Math.floor(audio.currentTime/60);
+			var seconds = Math.floor(audio.currentTime%60);	
+			var timeString = padZero(minutes)+':'+padZero(seconds);
+			audioTime.textContent = timeString;		
+		});
+		audio.addEventListener('ended', function(){
+			images.forEach(function(image){
+				image.style.animationPlayState = 'paused';
+			});
+			playPauseButton.textContent = 'Play';
+			isPaused = true;
+		});	
+
+		function padZero(value){
+			return value < 10? '0'+value:value;
+		}
+
+
+	</script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,250 @@
+
+*{
+	box-sizing: border-box;
+}
+html{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body{
+	height: 100%;
+	background-image: linear-gradient(to bottom, crimson,rgba(0,0,0,0.2)), url("images/BackgroundDESKTOP.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center; 
+	background-attachment: fixed;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+
+	/*background-color: #ADD8E6;*/
+}
+/*body::before{
+	content: '';
+	background: inherit;
+	filter: blur(10px);
+	opacity: 0.7;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+}*/
+
+@font-face{
+	font-family: 'digitalmono';
+	src: url(fonts/digitalmono.ttf) format('truetype');
+}
+
+.imagecontainer{
+	/*border: 2px solid red;*/
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 680px;
+	/*width: max-content;*/
+	width: 500px;
+	/*border: 2px #ADD8E6;*/
+	position: relative;
+	background-color: transparent;
+	overflow: hidden;
+}
+
+#backgroundimage{
+	/*position: absolute;*/
+	/*display: inline-block;*/
+	box-shadow: 0 0 10px rgba(0,0,0,1);
+	z-index: 1;
+	max-width: 100%;
+	max-height: 100%;
+	width: 100%;
+	height: 100%;
+	margin-top: 0px;
+	object-fit: cover;
+	/*border: 3px solid black;*/
+
+	
+}
+
+
+.playstuff{
+	/*border: 3px solid black;*/
+	position: absolute;
+	top: 138px;
+	right: 0%;
+	left: 0%;
+	z-index: 2;
+	height: 60px;
+	/*display: inline-block; */
+	transition: filter 0.3s;
+}
+.playstuff:hover,.playstuff:focus {
+	filter: brightness(0.7);
+	}
+
+.textOverlay{
+	/*border: 3px solid black;*/
+	position: absolute;
+	bottom: 30%;
+	right: 47%;
+	/*transform: translate(-50%,-50%);*/
+	background: none;
+	border: none;
+	font-family: 'digitalmono';
+	font-size: 18px;
+	color: white;
+	/*padding: 5px;*/
+	text-align: center;
+}
+
+
+.playmage{
+	/*border: 3px solid black;*/
+	position: absolute;
+	top: 0%;
+	right: 46%;
+	width: 60px;	
+	/*display: none;*/
+}
+.audionametag{
+	/*border: 2px solid green;*/
+	font-family: 'digitalmono', sans-serif; 
+	color: #013220;
+	/*text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;*/
+	margin-left: 4px;
+	top: 376px;
+	width: 106px;
+	z-index: 2;
+	position: absolute;
+	/*display: inline-block;*/
+	transition: transform 0.3s ease;
+	overflow: hidden;
+	
+
+}
+.audionametag>p{
+	margin: 0;
+	font-weight: bold;
+	font-size:18px; 
+	animation: scrollText 10s linear infinite;
+}
+
+@keyframes scrollText{
+	0%{
+		transform: translateY(0);
+	}
+	100%{
+		transform: translateX(-100%);
+	}
+}
+.audionametag:hover{
+	transform: scale(1.3);
+}
+
+.timestuff{
+	/*border: 5px solid blue;*/
+	position: absolute;
+	top: 138px;
+	right: 0%;
+	left: 0%;
+	height: 60px;
+	z-index: 2;
+	/*transform: translate(1%,1%);*/
+	/*display: inline-block;*/
+}
+
+
+#audioTime{
+	/*border: 3px solid red;*/
+	font-family: 'digitalmono', sans-serif; 
+	font-size: 22px; 
+	font-weight: bold;
+	color: #013220;
+	/*text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;*/
+	position: absolute;
+	top: 17%;
+	right: 30.3%;
+	/*transform: translate(-50%,-50%);*/
+	padding: 5px;
+}
+#timage{
+	position: absolute;
+	top: -10px;
+	right: 29%;
+	/*border: 2px solid green;*/
+	height: 75px;
+	/*max-height: 100px;*/
+	/*width: 100px;*/
+	object-fit: contain;
+}
+
+.wheels{
+	/*border: 2px solid green;*/
+	z-index: 4;
+	position: absolute;
+	top: 250px;
+	height: 50px;
+	left: 0;
+	right: 1%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 14%;
+}
+.wheels>.image{
+	z-index: 2;
+	width: 35px;
+	height: auto;
+	border-radius: 1000px;
+	border: 4px solid black;
+	animation-duration: 1.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-play-state: paused;
+}
+
+#rotimage{
+	animation-name: rotateClockwise;
+}
+#rotimage2{
+	animation-name: rotateCounterclockwise;
+}
+
+
+@keyframes rotateClockwise{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotateCounterclockwise{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(-360deg);
+	}
+
+}
+
+
+@media (max-width: 500px){
+body{
+	background-image: linear-gradient(to bottom, crimson,rgba(0,0,0,0.5)), url("images/BackgroundMOBILE.jpg");
+	
+}
+
+.imagecontainer{
+	width: 100%;
+}
+
+}
