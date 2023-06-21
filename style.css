@@ -72,6 +72,27 @@ body{
 	
 }
 
+.comiccover{
+position: absolute;
+	top: 138px;
+	right: 0%;
+	left: 0%;
+	height: 60px;
+	z-index: -1;
+
+}
+#zanzanaititle{
+	position: absolute;
+	top: -10px;
+	right: 29%;
+	/*border: 2px solid green;*/
+	height: 75px;
+	/*max-height: 100px;*/
+	/*width: 100px;*/
+	object-fit: contain;
+}
+
+
 
 .playstuff{
 	/*border: 3px solid black;*/
@@ -246,5 +267,40 @@ body{
 .imagecontainer{
 	width: 100%;
 }
+.timestuff{
+	left: 8%;
+	}
+	.audionametag{
+		top: 379px;
+	}
+	.audionametag>p{
+	font-size:15px; 
 
 }
+
+	.wheels{
+		gap: 16%;
+	}
+
+}
+
+@media (max-width: 455px){
+	.timestuff{
+	left: 20%;
+	}
+
+	.wheels{
+		gap: 17%;
+	}
+	#audioTime{
+		right: 31%;
+	}
+
+	}
+	@media (max-width: 400px){
+		.wheels{
+		gap: 19%;
+	}
+
+	}
+
